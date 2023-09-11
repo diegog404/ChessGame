@@ -19,5 +19,10 @@ namespace xadrez_console.tabuleiro
             Colunas = colunas;
             Pecas = new Peca[Linhas, Colunas]; //recebe uma matriz informada por movimento
         }
+
+        public Peca peca(int linha, int coluna)
+        {
+            return Pecas[linha, coluna];
+        }
     }
 }
