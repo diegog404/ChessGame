@@ -26,11 +26,48 @@ namespace xadrez.Tabuleiro
             return Pecas[linha, coluna];
         }
 
+        //acessa uma peça recebendo uma posição
+        public Peca Peca(Posicao pos)
+        {
+            return Pecas[pos.Linha, pos.Coluna];
+        }
+
+        //retorna uma peça existente no tabuleiro
+        public bool ExistePeca(Posicao pos)
+        {
+            ValidarPosicao(pos);
+            return Peca(pos) != null;
+        }
+
         //metodo para colocar uma peça no tabuleiro, recebe um tipo de peça, e a posição em que será colocada
         public void ColocarPeca(Peca p, Posicao pos)
         {
+            if (ExistePeca(pos))
+            {
+                throw new TabuleiroException("Já existe uma peça nessa posição!");
+            }
+
             Pecas[pos.Linha, pos.Coluna] = p;
             p.Posicao = pos;
+        }
+
+        //verifica se a posição escolhida é válida
+        public bool PosicaoValida(Posicao pos)
+        {
+            if(pos.Linha < 0 || pos.Linha >= Linhas || pos.Coluna < 0 || pos.Coluna >= Colunas)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        //valida uma posição
+        public void ValidarPosicao(Posicao pos)
+        {
+            if (!PosicaoValida(pos))
+            {
+                throw new TabuleiroException("Posição inválida!");
+            }
         }
     }
 }
