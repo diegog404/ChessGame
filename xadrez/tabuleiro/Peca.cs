@@ -12,11 +12,11 @@ namespace xadrez.Tabuleiro
         public Posicao Posicao { get; set; }
         public Cor Cor { get; protected set; }
         public int QtdeMovimentos { get; protected set; }
-        public Tabuleiro Tab {  get; protected set; } //referencia ao tabuleiro que vai jogar
+        public TabuleiroPecas Tab {  get; protected set; } //referencia ao tabuleiro que vai jogar
 
-        public Peca(Posicao posicao, Cor cor, Tabuleiro tab)
+        public Peca(Cor cor, TabuleiroPecas tab)
         {
-            Posicao = posicao;
+            Posicao = null; // começa sem posição
             Cor = cor;
             Tab = tab;
             QtdeMovimentos = 0; // começa sem movimentos
