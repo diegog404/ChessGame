@@ -17,6 +17,13 @@ namespace xadrez.Tabuleiro
             Coluna = coluna;
         }
 
+        //metodo para definir os valores da posição
+        public void DefinirValores(int linha, int coluna)
+        {
+            Linha = linha;
+            Coluna = coluna;
+        }
+
         public override string ToString()
         {
             return Linha + ", " + Coluna;
