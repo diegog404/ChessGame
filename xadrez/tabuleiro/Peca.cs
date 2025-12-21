@@ -21,5 +21,10 @@ namespace xadrez.Tabuleiro
             Tab = tab;
             QtdeMovimentos = 0; // começa sem movimentos
         }
+
+        public void IncrementarMovimentos()
+        {
+            QtdeMovimentos++;
+        }
     }
 }

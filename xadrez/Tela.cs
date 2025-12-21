@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using xadrez.JogoXadrez;
 using xadrez.Tabuleiro;
 
 namespace xadrez.Tabuleiro
@@ -31,6 +32,14 @@ namespace xadrez.Tabuleiro
             }
             Console.WriteLine("  a b c d e f g h");
             
+        }
+
+        public static PosicaoXadrez LerPosicaoXadrez()
+        {
+            string s = Console.ReadLine();
+            char Coluna = s[0];
+            int Linha = int.Parse(s[1] + "");
+            return new PosicaoXadrez(Coluna, Linha);
         }
 
         public static void ImprimirPeca(Peca peca)

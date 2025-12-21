@@ -51,6 +51,19 @@ namespace xadrez.Tabuleiro
             p.Posicao = pos;
         }
 
+        //retira uma peca da posição em que ela está
+        public Peca RetirarPeca(Posicao pos) 
+        { 
+            if(Peca(pos) == null)
+            {
+                return null;
+            }
+            Peca aux = Peca(pos);
+            aux.Posicao = null;
+            Pecas[pos.Linha, pos.Coluna] = null;
+            return aux;
+        }
+
         //verifica se a posição escolhida é válida
         public bool PosicaoValida(Posicao pos)
         {
