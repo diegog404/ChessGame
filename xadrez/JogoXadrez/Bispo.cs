@@ -1,0 +1,92 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using xadrez.Tabuleiro;
+
+namespace xadrez.JogoXadrez
+{
+    internal class Bispo : Peca
+    {
+        public Bispo(Cor cor, TabuleiroPecas tab) : base(cor, tab)
+        {
+
+        }
+
+        public override string ToString()
+        {
+            return "B";
+        }
+
+        //verifica se existe uma peça adversária nessa posição ou se está livre 
+        private bool PodeMover(Posicao pos)
+        {
+            Peca p = Tab.Peca(pos);
+            return p == null || p.Cor != Cor;
+        }
+
+        public override bool[,] MovimentosPossiveis()
+        {
+            bool[,] mat = new bool[Tab.Linhas, Tab.Colunas];
+
+            Posicao pos = new Posicao(0, 0);
+
+            //nordeste
+            pos.DefinirValores(Posicao.Linha - 1, Posicao.Coluna + 1);
+            while (Tab.PosicaoValida(pos) && PodeMover(pos))
+            {
+                mat[pos.Linha, pos.Coluna] = true;
+
+                if (Tab.Peca(pos) != null && Tab.Peca(pos).Cor != Cor)
+                {
+                    break;
+                }
+                pos.DefinirValores(pos.Linha - 1, pos.Coluna + 1);
+            }
+
+            //sudeste
+            pos.DefinirValores(Posicao.Linha + 1, Posicao.Coluna + 1);
+
+            while (Tab.PosicaoValida(pos) && PodeMover(pos))
+            {
+                mat[pos.Linha, pos.Coluna] = true;
+
+                if (Tab.Peca(pos) != null && Tab.Peca(pos).Cor != Cor)
+                {
+                    break;
+                }
+                pos.DefinirValores(pos.Linha + 1, pos.Coluna + 1);
+            }
+
+            //sudoeste
+            pos.DefinirValores(Posicao.Linha + 1, Posicao.Coluna - 1);
+
+            while (Tab.PosicaoValida(pos) && PodeMover(pos))
+            {
+                mat[pos.Linha, pos.Coluna] = true;
+
+                if (Tab.Peca(pos) != null && Tab.Peca(pos).Cor != Cor)
+                {
+                    break;
+                }
+                pos.DefinirValores(pos.Linha + 1, pos.Coluna - 1);
+            }
+
+            //noroeste
+            pos.DefinirValores(Posicao.Linha - 1, Posicao.Coluna - 1);
+
+            while(Tab.PosicaoValida(pos) && PodeMover(pos))
+            {
+                mat[pos.Linha, pos.Coluna] = true;
+
+                if(Tab.Peca(pos) != null && Tab.Peca(pos).Cor != Cor)
+                {
+                    break;
+                }
+                pos.DefinirValores(pos.Linha - 1, pos.Coluna - 1);
+            }
+            return mat;
+        }
+    }
+}
