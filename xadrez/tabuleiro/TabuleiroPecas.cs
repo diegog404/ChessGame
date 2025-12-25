@@ -13,6 +13,7 @@ namespace xadrez.Tabuleiro
 
         private Peca[,] Pecas; //Peças do tabuleiro
 
+        //Construtor que instancia um tabuleiro, baseado numa matriz de peças
         public TabuleiroPecas(int linhas, int colunas)
         {
             Linhas = linhas;
@@ -20,19 +21,20 @@ namespace xadrez.Tabuleiro
             Pecas = new Peca[Linhas, Colunas];
         }
 
-        //metodo de acesso a uma peça do tabuleiro
+        //Metodo usado para imprimir as peças do tabuleiro na tela, de acordo com uma matriz;
         public Peca Peca(int linha, int coluna)
         {
             return Pecas[linha, coluna];
         }
 
         //acessa uma peça recebendo uma posição
+        //Este metodo serve para referenciar uma peça do tabuleiro, em uma determinada posição.
         public Peca Peca(Posicao pos)
         {
             return Pecas[pos.Linha, pos.Coluna];
         }
 
-        //retorna uma peça existente no tabuleiro
+        //Esse metodo serve para verificar se existe uma peça em uma determinada posição
         public bool ExistePeca(Posicao pos)
         {
             ValidarPosicao(pos);
@@ -64,7 +66,7 @@ namespace xadrez.Tabuleiro
             return aux;
         }
 
-        //verifica se a posição escolhida é válida
+        //verifica se a posição escolhida é válida, baseado na matriz do tabuleiro
         public bool PosicaoValida(Posicao pos)
         {
             if(pos.Linha < 0 || pos.Linha >= Linhas || pos.Coluna < 0 || pos.Coluna >= Colunas)
@@ -74,7 +76,7 @@ namespace xadrez.Tabuleiro
             return true;
         }
 
-        //valida uma posição
+        //valida se uma posição escolhida é válida para a jogada
         public void ValidarPosicao(Posicao pos)
         {
             if (!PosicaoValida(pos))

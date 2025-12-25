@@ -36,6 +36,8 @@ namespace xadrez.JogoXadrez
 
         public override bool[,] MovimentosPossiveis()
         {
+            //essa matriz serve para mostrar as posições possiveis de movimento, é incrementada enquanto não tiver peças
+            //nas posições ou se tiver peças adversárias capturáveis
             bool[,] mat = new bool[Tab.Linhas, Tab.Colunas];
 
             Posicao pos = new Posicao(0, 0);

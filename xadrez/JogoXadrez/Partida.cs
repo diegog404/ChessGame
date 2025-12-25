@@ -44,7 +44,7 @@ namespace xadrez.JogoXadrez
                 throw new TabuleiroException("Você não pode se colocar em Xeque!");
             }
 
-            //jogada especial de promoção
+            //jogada especial de promoção, transforma um peão em uma rainha quando chega ao inicio do tabuleiro inimigo
             Peca p = Tab.Peca(destino);
 
             if(p is Peao)

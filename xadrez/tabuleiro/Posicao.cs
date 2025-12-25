@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace xadrez.Tabuleiro
 {
+    //Esta classe representa uma posição de uma peça para ser usada como referência no tabuleiro
     internal class Posicao
     {
         public int Linha { get; set; }

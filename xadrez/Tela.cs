@@ -76,6 +76,7 @@ namespace xadrez.Tabuleiro
             
         }
 
+        //Metodo que vai imprimir o tabuleiro quando uma peça for mudar de posição
         public static void ImprimirTabuleiro(TabuleiroPecas tab, bool[,] posicoesPossiveis)
         {
             ConsoleColor fundoOriginal = Console.BackgroundColor;
@@ -104,7 +105,8 @@ namespace xadrez.Tabuleiro
             Console.BackgroundColor = fundoOriginal;
 
         }
-
+        
+        //metodo que le a posição escolhida pelo jogador
         public static PosicaoXadrez LerPosicaoXadrez()
         {
             string s = Console.ReadLine();
